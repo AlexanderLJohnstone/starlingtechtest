@@ -24,31 +24,7 @@ class GoalNotFoundException(Exception):
         self.message = message
         super().__init__(self.message)
 
-class PathException(Exception):
-    """Exception raised for errors in the path.
-
-    Attributes:
-        path -- input path which caused the error
-        message -- explanation of the error
-    """
-
-    def __init__(self, path, message="Path is invalid."):
-        self.path = path
-        self.message = message
-        super().__init__(self.message)
         
-class MethodException(Exception):
-    """Exception raised for errors in the http method.
-
-    Attributes:
-        method -- method which caused the error
-        message -- explanation of the error
-    """
-
-    def __init__(self, method, message="Path is invalid."):
-        self.method = method
-        self.message = message
-        super().__init__(self.message)
         
 class AccountException(Exception):
     """Exception raised for errors in the account call.
@@ -68,10 +44,8 @@ class InputException(Exception):
 
     Attributes:
         inp -- input that caused an issue
-        message -- explanation of the error
     """
 
-    def __init__(self, inp, message="Missing or incorrect input."):
-        self.inp = inp
-        self.message = message
+    def __init__(self, inp):
+        self.message = inp
         super().__init__(self.message)

@@ -29,10 +29,13 @@ def get_inputs(event):
         inputs : return auth toke, date for round up and savings goal ID (UUID)
     """
     try:
-        auth = event[HEADERS][AUTH]
+        auth = event[QUERY_STRING_PARAMETERS][AUTH]
+    except:
+        raise e.InputException("No auth parameter")
+    try:
         date_input = event[QUERY_STRING_PARAMETERS][DATE]
     except:
-        raise e.InputException()
+        raise e.InputException("No date parameter")
     try:
         savingsGoalUid = event[QUERY_STRING_PARAMETERS][SAVINGS_ID]
     except:
@@ -59,12 +62,7 @@ def lambda_handler(event, context):
     """
     path_builder = RequestBuilder()
     response = path_builder.response_builder(200, "")
-    try:
-        # Get Input from API Gateway Event
-        if event[PATH] != ROUND:
-            raise e.PathException(event[PATH])
-        if event[HTTP_METHOD] != PUT:
-            raise e.MethodException(event[HTTP_METHOD])
+    try:   
         auth, date, savingsGoalUid = get_inputs(event)
 
         call_user = User(auth, savingsGoalUid)                                      # Create User
@@ -95,13 +93,9 @@ def lambda_handler(event, context):
         response = path_builder.response_builder(CLI_ERR_STATUS, error_dict(exc.message))
     except e.GoalNotFoundException as exc:
         response = path_builder.response_builder(CLI_ERR_STATUS, error_dict(exc.message))
-    except e.PathException as exc:
-        response = path_builder.response_builder(405,  error_dict(exc.message))
     except e.AccountException as exc:
-        response = path_builder.response_builder(exc.response.status, json_encoder(exc))
+        response = path_builder.response_builder(exc.response.status, json_encoder(exc.response))
     except e.InputException as exc:
-        response = path_builder.response_builder(CLI_ERR_STATUS, error_dict(exc.message))
-    except e.MethodException as exc:
         response = path_builder.response_builder(CLI_ERR_STATUS, error_dict(exc.message))
     return response
 

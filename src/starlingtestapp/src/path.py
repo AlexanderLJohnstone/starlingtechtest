@@ -4,7 +4,6 @@ import datetime
 import json
 import uuid
 
-
 class RequestBuilder:
     """
     This class builds requests using user data.
