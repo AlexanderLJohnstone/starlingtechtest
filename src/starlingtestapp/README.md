@@ -41,6 +41,7 @@ The api takes two parameters:
 The API will take midnight from the day supplied to midnight of a week later as the transaction window.
 Example
 https://zg24vmagbh.execute-api.us-east-1.amazonaws.com/Prod/round?date=2022&Authorization=d93h4pfsdch-cspdhsdiuchspd9
+
 curl -X PUT "https://zg24vmagbh.execute-api.us-east-1.amazonaws.com/Prod/round?date=2022-10-20&Authorization=dsvsbdv-sfkvsbd"
 
 
@@ -52,8 +53,10 @@ Below are a number of Limitations
 ## Testing
 Testing of this application can be done locally using docker however I have implemented it so you can see a call to the API gateway. You can run this using AWS client that will automatically find your stack url (in case it changes). But for ease of use I've hard coded the URL for you.
 The API is, and will continue to run, at https://zg24vmagbh.execute-api.us-east-1.amazonaws.com/Prod/round 
-To run the tests you must use pylint from the root directory:
+To run the tests you must use pylint from the starlingtestapp directory:
+
 URL="{url}" AUTH="{Starling Sandbox customer auth}" python -m pytest tests/integration -v
+
 URL="https://zg24vmagbh.execute-api.us-east-1.amazonaws.com/Prod/round" AUTH="{}" python3 -m pytest tests/integration -vv
 
 
@@ -64,4 +67,5 @@ Due to the nature of a take home challenge I decided to timebox my solution to p
 ## deployment
 
 If you have the SAM CLI and an AWS account, then you can deploy it yourself and play with it in the console:
+
 sam deploy --guided
