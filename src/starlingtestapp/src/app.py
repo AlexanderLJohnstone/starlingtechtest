@@ -98,32 +98,3 @@ def lambda_handler(event, context):
     except e.InputException as exc:
         response = path_builder.response_builder(CLI_ERR_STATUS, error_dict(exc.message))
     return response
-
-
-# lambda_handler(0,0)
-# Put a DB in the back
-# users can submit their name, a secret key and there auth token, auth tokens hard to find and no one wants to remember
-# Check user exists for put!
-# Add a delete?
-# what if two names the same? maybe use unique usernames!
-#
-# Given a user get all of there accounts or maybe just primary
-# access their default category online for a week period (mondays only), user should be able to suplpy any date and it'll get the week surrounding it
-# perform round up calculation (trasactions out only etc)
-#
-# Have a class for a user, store things like category ID, auth, accountID
-# Have a class for building URLs?
-# Have a class for parsing response?
-# Long ReadMe required
-# Explain assumptions
-# could have split out into multiple lambdas but creates messy architecture and increases cold-starts.
-# What if no transactions?
-# other currencies?
-# if user does not have a goal create a default goal, otherwise add to first goal
-# user can provide a goal, if none is provided we will add to it
-# balance check performed by put request to API so we can just pass back error
-# could look for a savings goal less than 0%
-# Logging?
-# NOTE THAT A CHANGE WAS MADE MID DEV TO API!!!
-# TODO  test, write up read me,
-# Potential problems, incorrect auth, date or savingsGoalUid. 
