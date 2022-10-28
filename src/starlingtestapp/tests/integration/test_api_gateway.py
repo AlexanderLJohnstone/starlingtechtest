@@ -39,52 +39,58 @@ class TestApiGateway:
     
     @pytest.fixture()
     def starling_auth(self):
-        """ Get the API Gateway URL from Cloudformation Stack outputs """
+        """ Get the API Gateway URL from user input """
         auth = os.environ.get("AUTH")
-
         if auth is None:
             raise ValueError('Please set the AUTH environment variable to the a users AUTH token')
-
         return auth # Extract url from stack outputs   
+    
+    @pytest.fixture()
+    def get_url(self):
+        """ Get the API Gateway URL from user input """
+        url = os.environ.get("URL")
+        if url is None:
+            raise ValueError('Please set the url environment variable to the a users url token')
+        return url # Extract url from stack outputs 
         
-    def test_api_gateway_no_auth(self, api_gateway_url):
+    def test_api_gateway_no_auth(self, get_url):
         """ Call the API Gateway endpoint and check the response for no auth """
-        response = requests.put(api_gateway_url+"?date=2020")
+        response = requests.put(get_url+"?date=2020")
 
         assert response.status_code == 400
         assert response.json() == {"error": "No auth parameter"}
         
-    def test_api_gateway_no_date(self, api_gateway_url):
+    def test_api_gateway_no_date(self, get_url):
         """ Call the API Gateway endpoint and check the response """
-        response = requests.put(api_gateway_url+"?Authorization=l")
+        response = requests.put(get_url+"?Authorization=l")
 
         assert response.status_code == 400
         assert response.json() == {"error": "No date parameter"}
 
-    def test_api_gateway_bad_auth(self, api_gateway_url):
+    def test_api_gateway_bad_auth(self, get_url):
         """ Call the API Gateway endpoint and check the response """
-        response = requests.put(api_gateway_url+"?date=20&Authorization=l")
+        response = requests.put(get_url+"?date=20&Authorization=l")
 
         assert response.status_code == 403
         assert response.json() == {'error': 'invalid_token', 'error_description': 'Could not validate provided access token'}
         
-    def test_api_gateway_bad_date(self, api_gateway_url, starling_auth):
+    def test_api_gateway_bad_date(self, get_url, starling_auth):
         """ Call the API Gateway endpoint and check the response """
-        response = requests.put(api_gateway_url+"?date=20&Authorization="+starling_auth)
+        response = requests.put(get_url+"?date=20&Authorization="+starling_auth)
 
         assert response.status_code == 400
         assert response.json() == {'error': 'Date is not in YYYY-MM-DD'} 
         
-    def test_api_gateway_correct_input(self, api_gateway_url, starling_auth):
+    def test_api_gateway_correct_input(self, get_url, starling_auth):
         """ Call the API Gateway endpoint and check the response """
-        response = requests.put(api_gateway_url+"?date=2022-10-20&Authorization="+starling_auth)
+        response = requests.put(get_url+"?date=2022-10-20&Authorization="+starling_auth)
 
         assert response.status_code == 200
         assert response.json()['success'] == True
         
-    def test_api_gateway_no_transactions(self, api_gateway_url, starling_auth):
+    def test_api_gateway_no_transactions(self, get_url, starling_auth):
         """ Call the API Gateway endpoint and check the response """
-        response = requests.put(api_gateway_url+"?date=2023-10-20&Authorization="+starling_auth)
+        response = requests.put(get_url+"?date=2023-10-20&Authorization="+starling_auth)
 
         assert response.status_code == 400
         assert response.json()['success'] == False
