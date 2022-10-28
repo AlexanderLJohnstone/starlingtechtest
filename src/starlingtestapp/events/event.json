@@ -1,0 +1,61 @@
+{
+  "body": "{\"message\": \"round up\"}",
+  "resource": "/round",
+  "path": "/round",
+  "httpMethod": "PUT",
+  "isBase64Encoded": false,
+  "queryStringParameters": {
+    "date": "2022-10-20",
+    "savingsGoalUid":"8dadbaed-ebdc-4818-9de7-74ce811214e3"
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource"
+  },
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Authorization": "eyJhbGciOiJQUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_31Uy46jMBD8lRHn8YiHBwK3ve0P7Ac07SaxYmxkm5kdrfbf12ATQibaS6Sq6le5m_zJpHNZl8EkmaDRvDkPVkl97kFf39CM2Wvm5n6JaDmdWpEzrLBlvC2J9SCAvQ8IWJWixR5DMP2esq6o6ybnJ96eXjMJfiXqti7zhQBEM2v_0yhB9pcUoXZTUVMXQ8V64hhqVznrMa9YXTRFPhBRJXio7c2VdMwgKkXRti1rlx_OS85OFQHjOecoqCp504aMYOsHIjmXstoem2EoWMlF6DO0Iavg74yX0DQ1Qk1FvhhGM9FiOU7KUBlHorME4mXjLuv4TMNITwX_NT0IUpD2cpBkj7ySzh-YBISwYfCOhPQ3EBXvAS8j3SJ3_GmlpxeY_cVY6cIamdRCfkgxg4rBPSjQmEZDsIKh0d4aFRstTNKMHqQdwUujmRnYMGvhbpK7dd9AbI2z82bcLNIIMhVWFAbR5w6mSX3d0Bo1ghbgqROkKJTYYNLslfxiZLI0kKUwu_ufFMeI2qQAKbyAp7NdfdwnfhdTKlm8wOZuJB-O3EOHAa5qwqupCb6INimCZCKCPYjJEc7JUyJCZ6u3tcT4O9lb0A5wnzrQrJ_Vtdu2Szu1TxDxPkTEW4HlRsK9jdLvNZXBMMRdhZVgZjmSRzZlWTNItVmKHg_UGmUJSU7-ANxRig--Ls-CSqKDj7BTx85mH-vAJXMH7ltmfL9Q-FmJXXxSaxdjUbyQmBUJlt4v0eR98DtPCU6wfVPhD3S9bWasuGt_ZLe-R_ZJPjOf-sZ7WheI7uORmsSQqLl3aMPjLnezdbnn1qj741r393ht2d9_xf6trRkGAAA.W4DQcUgABauUbBIVdafrLNtEaKbd8-o4C8jgUIiWwkWzWofFAUc2_bEk4ID1ffsW86Tsn_KWHlp57O0TQ-TTz56sf0zfBB3ugZ_tfVUeYwjaMIZqigm75DZpnzLxZEnfmx6Qu_nsrDFKexzXrL58YVVzkwMrThmw291O0_K5no9E5c-mDpumNyJCZ3rNHp7DBIwCU1eo63j-43qsqu3AAm5iBeqsyCsSPOoVC8WPKN29_9jqUEKJCCNzu1sHUI7td-HHyUTuty-RxHxk0m6b589cU-k8RX3wGOwRVcTbyjWVEHXZA4wXiVajO8p6gde2sH1krWQiLMSCigUOrhfWsivJ6x9qA4jnWXlhrGJoZJc3rqJJ3FtOF4fiW3HC2WP9A3czCPyUT6sbR6gwAnPNsx47k8Bu78o4nQaILKvA43fmMMbBSvJv68ztYUJJZ_JDe6iPge7_b1vxPqEsLROnceXyzDdw3zHXoOcxf3fT69gO33xrf3Gk6NJA-Q0pKsHUnT7RasS58qIG0WpSxzsjDbcU3WUuOYmUzRfPLOwHNBas1R2rfZjc-VBe8XZbiv1a6EDsyHuLNTMFT-TRcjfcxsCbfCuXsB5STwaGlevD0iJwXxAmT1vPJtitLVyGGIWoJpLEaGi9rRodQ6776MrwP73MCJg19nM1Agqxbm7WTzU",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/round",
+    "resourcePath": "/round",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+}

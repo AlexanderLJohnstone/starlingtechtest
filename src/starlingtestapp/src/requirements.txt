@@ -1,0 +1,6 @@
+botocore
+json
+math
+random
+time
+urllib3
